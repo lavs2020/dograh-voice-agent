@@ -99,12 +99,12 @@ class VobizProvider(TelephonyProvider):
         if workflow_run_id:
             backend_endpoint, _ = await get_backend_endpoints()
             hangup_url = f"{backend_endpoint}/api/v1/telephony/vobiz/hangup-callback/{workflow_run_id}"
-            ring_url = f"{backend_endpoint}/api/v1/telephony/vobiz/ring-callback/{workflow_run_id}"
+            # ring_url = f"{backend_endpoint}/api/v1/telephony/vobiz/ring-callback/{workflow_run_id}"
             data.update(
                 {
                     "hangup_url": hangup_url,
                     "hangup_method": "POST",
-                    "ring_url": ring_url,
+                    # "ring_url": ring_url,
                     "ring_method": "POST",
                 }
             )

@@ -315,7 +315,8 @@ async def update_recording(
 )
 async def transcribe_audio(
     file: UploadFile = File(...),
-    language: str = Form("en"),
+    # language: str = Form("en"),
+    language: str = Form("ta-IN"), #add tamil language
     user=Depends(get_user),
 ):
     """Transcribe an uploaded audio file using MPS STT."""

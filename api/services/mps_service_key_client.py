@@ -356,7 +356,8 @@ class MPSServiceKeyClient:
         audio_data: bytes,
         filename: str = "audio.wav",
         content_type: str = "audio/wav",
-        language: str = "en",
+        # language: str = "en",
+        language: str = "ta-IN",
         model: str = "default",
         correlation_id: Optional[str] = None,
         organization_id: Optional[int] = None,
@@ -369,7 +370,7 @@ class MPSServiceKeyClient:
             audio_data: Raw audio bytes
             filename: Name of the audio file
             content_type: MIME type of the audio (e.g., audio/wav, audio/mp3)
-            language: Language code for transcription (default: "en")
+            language: Language code for transcription (default: "ta-IN")
             model: Model tier name (default: "default")
             correlation_id: Optional correlation ID for tracking
             organization_id: Organization ID (for authenticated mode)
@@ -453,7 +454,7 @@ class MPSServiceKeyClient:
         Args:
             provider: TTS provider name (elevenlabs, deepgram, sarvam, cartesia, rime)
             model: Optional model ID to filter voices (e.g., "arcana", "mistv2")
-            language: Optional language code to filter voices (e.g., "eng", "en")
+            language: Optional language code to filter voices (e.g., "tamil", "ta-IN")
             organization_id: Organization ID (for authenticated mode)
             created_by: User provider ID (for OSS mode)
 

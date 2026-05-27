@@ -77,7 +77,7 @@ class PlivoProvider(TelephonyProvider):
                 {
                     "hangup_url": f"{backend_endpoint}/api/v1/telephony/plivo/hangup-callback/{workflow_run_id}",
                     "hangup_method": "POST",
-                    "ring_url": f"{backend_endpoint}/api/v1/telephony/plivo/ring-callback/{workflow_run_id}",
+                    # "ring_url": f"{backend_endpoint}/api/v1/telephony/plivo/ring-callback/{workflow_run_id}",
                     "ring_method": "POST",
                 }
             )

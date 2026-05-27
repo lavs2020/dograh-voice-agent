@@ -208,7 +208,8 @@ class OpenAILLMService(BaseLLMConfiguration):
     model: str = Field(
         default="gpt-4.1",
         description="OpenAI chat model to use.",
-        json_schema_extra={"examples": OPENAI_MODELS, "allow_custom_input": True},
+        json_schema_extra={"examples": OPENAI_MODELS,
+                           "allow_custom_input": True},
     )
 
 
@@ -218,7 +219,8 @@ class GoogleLLMService(BaseLLMConfiguration):
     model: str = Field(
         default="gemini-2.0-flash",
         description="Gemini model on Google AI Studio (not Vertex).",
-        json_schema_extra={"examples": GOOGLE_MODELS, "allow_custom_input": True},
+        json_schema_extra={"examples": GOOGLE_MODELS,
+                           "allow_custom_input": True},
     )
 
 
@@ -228,7 +230,8 @@ class GroqLLMService(BaseLLMConfiguration):
     model: str = Field(
         default="llama-3.3-70b-versatile",
         description="Groq-hosted model identifier.",
-        json_schema_extra={"examples": GROQ_MODELS, "allow_custom_input": True},
+        json_schema_extra={"examples": GROQ_MODELS,
+                           "allow_custom_input": True},
     )
 
 
@@ -238,7 +241,8 @@ class OpenRouterLLMConfiguration(BaseLLMConfiguration):
     model: str = Field(
         default="openai/gpt-4.1",
         description="OpenRouter model slug in 'vendor/model' form.",
-        json_schema_extra={"examples": OPENROUTER_MODELS, "allow_custom_input": True},
+        json_schema_extra={"examples": OPENROUTER_MODELS,
+                           "allow_custom_input": True},
     )
 
     base_url: str = Field(
@@ -253,7 +257,8 @@ class AzureLLMService(BaseLLMConfiguration):
     model: str = Field(
         default="gpt-4.1-mini",
         description="Azure deployment name (not the upstream OpenAI model id).",
-        json_schema_extra={"examples": AZURE_MODELS, "allow_custom_input": True},
+        json_schema_extra={"examples": AZURE_MODELS,
+                           "allow_custom_input": True},
     )
 
     endpoint: str = Field(
@@ -267,7 +272,8 @@ class DograhLLMService(BaseLLMConfiguration):
     model: str = Field(
         default="default",
         description="Dograh-hosted model tier.",
-        json_schema_extra={"examples": DOGRAH_LLM_MODELS, "allow_custom_input": True},
+        json_schema_extra={"examples": DOGRAH_LLM_MODELS,
+                           "allow_custom_input": True},
     )
 
 
@@ -277,7 +283,8 @@ class AWSBedrockLLMConfiguration(BaseLLMConfiguration):
     model: str = Field(
         default="us.amazon.nova-pro-v1:0",
         description="Bedrock model ID — include the region inference-profile prefix (e.g. 'us.').",
-        json_schema_extra={"examples": AWS_BEDROCK_MODELS, "allow_custom_input": True},
+        json_schema_extra={"examples": AWS_BEDROCK_MODELS,
+                           "allow_custom_input": True},
     )
     aws_access_key: str = Field(
         default="",
@@ -297,7 +304,8 @@ class AWSBedrockLLMConfiguration(BaseLLMConfiguration):
     )
 
 
-SPEACHES_LLM_MODELS = ["llama3", "mistral", "phi3", "qwen2", "gemma2", "deepseek-r1"]
+SPEACHES_LLM_MODELS = ["llama3", "mistral",
+                       "phi3", "qwen2", "gemma2", "deepseek-r1"]
 
 
 @register_llm
@@ -410,7 +418,7 @@ class GoogleRealtimeLLMConfiguration(BaseLLMConfiguration):
         },
     )
     language: str = Field(
-        default="en",
+        default="ta-IN",  # en was there before
         description="ISO 639-1 language code.",
         json_schema_extra={
             "examples": GOOGLE_REALTIME_LANGUAGES,
@@ -448,14 +456,15 @@ class GoogleVertexRealtimeLLMConfiguration(BaseLLMConfiguration):
         },
     )
     language: str = Field(
-        default="en",
-        description="BCP-47 language code (e.g. 'en-US').",
+        default="ta-IN",
+        description="BCP-47 language code (e.g. 'ta-IN').",
         json_schema_extra={
             "examples": GOOGLE_VERTEX_REALTIME_LANGUAGES,
             "allow_custom_input": True,
         },
     )
-    project_id: str = Field(description="Google Cloud project ID for Vertex AI.")
+    project_id: str = Field(
+        description="Google Cloud project ID for Vertex AI.")
     location: str = Field(
         default="us-east4",
         description="GCP region for the Vertex AI endpoint (e.g. 'us-east4').",
@@ -542,7 +551,8 @@ class ElevenlabsTTSConfiguration(BaseServiceConfiguration):
         default="21m00Tcm4TlvDq8ikWAM",
         description="ElevenLabs voice ID from your Voice Library.",
     )
-    speed: float = Field(default=1.0, ge=0.1, le=2.0, description="Speed of the voice.")
+    speed: float = Field(default=1.0, ge=0.1, le=2.0,
+                         description="Speed of the voice.")
     model: str = Field(
         default="eleven_flash_v2_5",
         description="ElevenLabs TTS model.",
@@ -590,7 +600,8 @@ class DograhTTSService(BaseTTSConfiguration):
         default="default",
         description="Voice preset.",
     )
-    speed: float = Field(default=1.0, ge=0.5, le=2.0, description="Speed of the voice.")
+    speed: float = Field(default=1.0, ge=0.5, le=2.0,
+                         description="Speed of the voice.")
 
 
 CARTESIA_TTS_MODELS = ["sonic-3"]
@@ -608,7 +619,8 @@ class CartesiaTTSConfiguration(BaseTTSConfiguration):
         default="3faa81ae-d3d8-4ab1-9e44-e50e46d33c30",
         description="Cartesia voice UUID from your Cartesia dashboard.",
     )
-    speed: float = Field(default=1.0, ge=0.6, le=1.5, description="Speed of the voice.")
+    speed: float = Field(default=1.0, ge=0.6, le=1.5,
+                         description="Speed of the voice.")
     volume: float = Field(
         default=1.0,
         ge=0.5,
@@ -704,8 +716,8 @@ class SarvamTTSConfiguration(BaseTTSConfiguration):
         },
     )
     language: str = Field(
-        default="hi-IN",
-        description="BCP-47 Indian-language code (e.g. hi-IN, en-IN).",
+        default="ta-IN",
+        description="BCP-47 Indian-language code (e.g. hi-IN, ta-IN).",
         json_schema_extra={"examples": SARVAM_LANGUAGES},
     )
 
@@ -735,7 +747,8 @@ class RimeTTSConfiguration(BaseTTSConfiguration):
     model: str = Field(
         default="arcana",
         description="Rime TTS model.",
-        json_schema_extra={"examples": RIME_TTS_MODELS, "allow_custom_input": True},
+        json_schema_extra={"examples": RIME_TTS_MODELS,
+                           "allow_custom_input": True},
     )
     voice: str = Field(
         default="celeste",
@@ -747,7 +760,8 @@ class RimeTTSConfiguration(BaseTTSConfiguration):
     language: str = Field(
         default="en",
         description="ISO 639-1 language code.",
-        json_schema_extra={"examples": RIME_TTS_LANGUAGES, "allow_custom_input": True},
+        json_schema_extra={"examples": RIME_TTS_LANGUAGES,
+                           "allow_custom_input": True},
     )
 
 
@@ -801,7 +815,8 @@ TTSConfig = Annotated[
 ###################################################### STT ########################################################################
 
 
-DEEPGRAM_STT_MODELS = ["nova-3-general", "flux-general-en", "flux-general-multi"]
+DEEPGRAM_STT_MODELS = ["nova-3-general",
+                       "flux-general-en", "flux-general-multi"]
 DEEPGRAM_LANGUAGES = [
     "multi",
     "ar",

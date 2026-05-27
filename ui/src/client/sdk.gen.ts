@@ -177,7 +177,7 @@ export const handleVobizHangupCallbackApiV1TelephonyVobizHangupCallbackWorkflowR
  *
  * Handle Vobiz ring callback (sent when call starts ringing).
  *
- * Vobiz can send callbacks to ring_url when the call starts ringing.
+ * Vobiz can send callbacks to c when the call starts ringing.
  * This is optional and used for tracking ringing status.
  */
 export const handleVobizRingCallbackApiV1TelephonyVobizRingCallbackWorkflowRunIdPost = <ThrowOnError extends boolean = false>(options: Options<HandleVobizRingCallbackApiV1TelephonyVobizRingCallbackWorkflowRunIdPostData, ThrowOnError>) => (options.client ?? client).post<HandleVobizRingCallbackApiV1TelephonyVobizRingCallbackWorkflowRunIdPostResponses, HandleVobizRingCallbackApiV1TelephonyVobizRingCallbackWorkflowRunIdPostErrors, ThrowOnError>({ url: '/api/v1/telephony/vobiz/ring-callback/{workflow_run_id}', ...options });
